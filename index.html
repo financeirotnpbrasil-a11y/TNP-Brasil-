@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="robots" content="noindex,nofollow" />
+  <meta name="theme-color" content="#07100b" />
+  <title>Grupo Oficial TNP</title>
+  <style>
+    :root{--bg:#06100a;--panel:#0d1811;--line:#233328;--green:#25d366;--text:#f7faf8;--muted:#9aa89f}
+    *{box-sizing:border-box}body{margin:0;min-height:100svh;display:grid;place-items:center;padding:18px;background:radial-gradient(circle at 50% 0%,rgba(37,211,102,.18),transparent 38%),var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}.card{width:min(470px,100%);text-align:center;padding:28px 19px;background:linear-gradient(180deg,#111d15,#08100b);border:1px solid var(--line);border-radius:28px;box-shadow:0 30px 90px rgba(0,0,0,.43)}.wa{width:82px;height:82px;margin:0 auto 17px;border-radius:50%;display:grid;place-items:center;background:var(--green);box-shadow:0 0 0 10px rgba(37,211,102,.08),0 18px 42px rgba(37,211,102,.2);font-size:41px}.eyebrow{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#79e7a2;font-weight:900}h1{font-size:30px;line-height:1.04;letter-spacing:-.04em;margin:8px 0 9px}p{margin:0 auto 18px;color:var(--muted);font-size:14px;max-width:370px}.status{display:inline-flex;align-items:center;gap:9px;padding:8px 12px;border-radius:999px;background:#09130d;border:1px solid #294033;color:#cad4cd;font-size:12px;margin-bottom:15px}.dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 6px rgba(37,211,102,.10);animation:pulse 1.4s infinite}@keyframes pulse{50%{box-shadow:0 0 0 12px rgba(37,211,102,0)}}.btn{display:flex;align-items:center;justify-content:center;min-height:55px;border-radius:15px;background:linear-gradient(135deg,#31ea79,#1fb85a);color:#041108;text-decoration:none;font-weight:950;box-shadow:0 14px 34px rgba(37,211,102,.22);position:relative;overflow:hidden}.btn:after{content:"";position:absolute;top:-80%;left:-45%;width:27%;height:260%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.58),transparent);transform:rotate(18deg);animation:shine 2.8s infinite}@keyframes shine{0%,35%{left:-45%;opacity:0}48%{opacity:.9}70%{left:125%;opacity:0}100%{left:125%;opacity:0}}.small{font-size:11px;color:#6f7e74;margin-top:12px}.error{display:none;margin-top:12px;color:#e5b8b8;font-size:11px}details{border-top:1px solid #1d2b22;margin-top:18px;padding-top:14px}summary{cursor:pointer;color:#8c9a91;font-size:12px}.fallbacks{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:11px}.fallback{padding:10px 7px;border-radius:11px;background:#0b1510;border:1px solid #28382e;color:#bec9c1;text-decoration:none;font-size:11px;font-weight:850}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important}}
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="wa">☎</div>
+    <div class="eyebrow">Grupo oficial TNP</div>
+    <h1>Entre no grupo disponível.</h1>
+    <p>Você será direcionado para o grupo ativo da sequência. O WhatsApp abrirá automaticamente.</p>
+    <div class="status"><i class="dot"></i><span id="status">Localizando o grupo disponível...</span></div>
+    <a class="btn" id="join" href="#" rel="noopener noreferrer">ENTRAR NO GRUPO AGORA</a>
+    <div class="small">Redirecionamento automático em 3 segundos.</div>
+    <div class="error" id="error">Não foi possível localizar um grupo disponível. Tente novamente em instantes.</div>
+    <details id="alternatives" hidden>
+      <summary>O grupo selecionado está cheio?</summary>
+      <p style="font-size:11px;margin-top:10px">Tente outro grupo da sequência:</p>
+      <div class="fallbacks" id="fallbacks"></div>
+    </details>
+  </main>
+<script>
+function render(activeGroup,groups){
+  const n=Math.min(Math.max(Number(activeGroup)||1,1),groups.length);
+  const active=groups[n-1];
+  if(!active)throw new Error('Grupo ausente');
+  document.getElementById('status').textContent=`Grupo ${String(n).padStart(2,'0')} selecionado`;
+  document.getElementById('join').href=active;
+  const box=document.getElementById('fallbacks');
+  groups.forEach((url,i)=>{if(i===n-1)return;const a=document.createElement('a');a.className='fallback';a.href=url;a.rel='noopener noreferrer';a.textContent=`Tentar Grupo ${String(i+1).padStart(2,'0')}`;box.appendChild(a)});
+  if(groups.length>1)document.getElementById('alternatives').hidden=false;
+  setTimeout(()=>{location.href=active},3000);
+}
+(async()=>{
+  try{
+    const response=await fetch('/api/config',{cache:'no-store'});
+    if(!response.ok)throw new Error('Falha na configuração');
+    const data=await response.json();
+    if(!Array.isArray(data.groups)||!data.groups.length)throw new Error('Sem grupos');
+    render(data.activeGroup,data.groups);
+  }catch(error){
+    document.getElementById('status').textContent='Configuração indisponível';
+    document.getElementById('join').style.opacity='.45';
+    document.getElementById('join').style.pointerEvents='none';
+    document.getElementById('error').style.display='block';
+  }
+})();
+</script>
+</body>
+</html>
