@@ -4,40 +4,132 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <meta name="robots" content="noindex,nofollow" />
-  <meta name="theme-color" content="#07100b" />
+  <meta name="theme-color" content="#070708" />
   <title>Grupo Oficial TNP</title>
   <style>
-    :root{--bg:#06100a;--panel:#0d1811;--line:#233328;--green:#25d366;--text:#f7faf8;--muted:#9aa89f}
-    *{box-sizing:border-box}body{margin:0;min-height:100svh;display:grid;place-items:center;padding:18px;background:radial-gradient(circle at 50% 0%,rgba(37,211,102,.18),transparent 38%),var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}.card{width:min(470px,100%);text-align:center;padding:28px 19px;background:linear-gradient(180deg,#111d15,#08100b);border:1px solid var(--line);border-radius:28px;box-shadow:0 30px 90px rgba(0,0,0,.43)}.wa{width:82px;height:82px;margin:0 auto 17px;border-radius:50%;display:grid;place-items:center;background:var(--green);box-shadow:0 0 0 10px rgba(37,211,102,.08),0 18px 42px rgba(37,211,102,.2);font-size:41px}.eyebrow{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#79e7a2;font-weight:900}h1{font-size:30px;line-height:1.04;letter-spacing:-.04em;margin:8px 0 9px}p{margin:0 auto 18px;color:var(--muted);font-size:14px;max-width:370px}.status{display:inline-flex;align-items:center;gap:9px;padding:8px 12px;border-radius:999px;background:#09130d;border:1px solid #294033;color:#cad4cd;font-size:12px;margin-bottom:15px}.dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 6px rgba(37,211,102,.10);animation:pulse 1.4s infinite}@keyframes pulse{50%{box-shadow:0 0 0 12px rgba(37,211,102,0)}}.btn{display:flex;align-items:center;justify-content:center;min-height:55px;border-radius:15px;background:linear-gradient(135deg,#31ea79,#1fb85a);color:#041108;text-decoration:none;font-weight:950;box-shadow:0 14px 34px rgba(37,211,102,.22);position:relative;overflow:hidden}.btn:after{content:"";position:absolute;top:-80%;left:-45%;width:27%;height:260%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.58),transparent);transform:rotate(18deg);animation:shine 2.8s infinite}@keyframes shine{0%,35%{left:-45%;opacity:0}48%{opacity:.9}70%{left:125%;opacity:0}100%{left:125%;opacity:0}}.small{font-size:11px;color:#6f7e74;margin-top:12px}.error{display:none;margin-top:12px;color:#e5b8b8;font-size:11px}details{border-top:1px solid #1d2b22;margin-top:18px;padding-top:14px}summary{cursor:pointer;color:#8c9a91;font-size:12px}.fallbacks{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:11px}.fallback{padding:10px 7px;border-radius:11px;background:#0b1510;border:1px solid #28382e;color:#bec9c1;text-decoration:none;font-size:11px;font-weight:850}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important}}
+    :root{
+      --bg:#070708;
+      --panel:#100d0e;
+      --panel2:#151011;
+      --line:#3b2021;
+      --red:#ff231c;
+      --red2:#b90808;
+      --green:#25d366;
+      --green2:#0dab49;
+      --text:#fff;
+      --muted:#b7acad;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      min-height:100svh;
+      color:var(--text);
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+      background:
+        radial-gradient(circle at 50% 0%,rgba(255,35,28,.17),transparent 30%),
+        linear-gradient(180deg,#050505,#0a0506 58%,#050505);
+      overflow-x:hidden;
+    }
+    body:before{
+      content:"";
+      position:fixed;
+      inset:-25%;
+      z-index:-1;
+      pointer-events:none;
+      background:radial-gradient(circle,rgba(255,28,20,.08),transparent 32%);
+      animation:ambient 8s ease-in-out infinite alternate;
+    }
+    @keyframes ambient{from{transform:translate(-6%,-3%) scale(.95)}to{transform:translate(7%,5%) scale(1.08)}}
+    .page{width:min(560px,100%);margin:auto;min-height:100svh;background:rgba(5,5,5,.34);box-shadow:0 0 70px rgba(0,0,0,.45)}
+    .hero{position:relative;overflow:hidden;background:#050505}
+    .hero img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover}
+    .hero:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:24%;background:linear-gradient(180deg,transparent,#080506)}
+    .content{position:relative;margin-top:-8px;padding:0 18px 34px;text-align:center}
+    .eyebrow{font-size:10px;font-weight:950;letter-spacing:.17em;text-transform:uppercase;color:#ff6b64;margin-bottom:7px}
+    h1{font-size:24px;line-height:1.08;letter-spacing:-.035em;margin:0 auto 9px;max-width:470px}
+    h1 b{color:var(--red)}
+    .lead{font-size:14px;line-height:1.45;color:#d3c9ca;margin:0 auto 16px;max-width:450px}
+    .status{display:inline-flex;align-items:center;gap:9px;min-height:38px;padding:8px 14px;border-radius:999px;background:rgba(10,18,13,.9);border:1px solid rgba(37,211,102,.5);color:#eef8f1;font-size:12px;font-weight:800;box-shadow:0 0 24px rgba(37,211,102,.08);margin-bottom:14px}
+    .dot{width:10px;height:10px;border-radius:50%;background:var(--green);box-shadow:0 0 0 7px rgba(37,211,102,.11);animation:pulse 1.35s infinite}
+    @keyframes pulse{50%{box-shadow:0 0 0 13px rgba(37,211,102,0)}}
+    .btn{display:flex;align-items:center;justify-content:center;gap:12px;min-height:58px;padding:14px 17px;border-radius:17px;background:linear-gradient(135deg,#2ce675,#17b957 62%,#0ca647);color:#041109;text-decoration:none;font-size:15px;font-weight:950;letter-spacing:.01em;box-shadow:0 16px 38px rgba(37,211,102,.25),inset 0 1px 0 rgba(255,255,255,.35);position:relative;overflow:hidden;transition:.18s ease}
+    .btn:active{transform:scale(.975)}
+    .btn:after{content:"";position:absolute;top:-90%;left:-45%;width:28%;height:280%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.6),transparent);transform:rotate(18deg);animation:shine 2.7s infinite}
+    @keyframes shine{0%,35%{left:-45%;opacity:0}48%{opacity:.95}70%{left:128%;opacity:0}100%{left:128%;opacity:0}}
+    .wa{width:29px;height:29px;flex:0 0 auto;fill:#fff;filter:drop-shadow(0 2px 4px rgba(0,0,0,.2))}
+    .helper{font-size:12px;line-height:1.45;color:#a99e9f;margin:15px auto 0;max-width:410px}
+    .error{display:none;margin-top:13px;padding:11px;border-radius:12px;border:1px solid #6d2929;background:#230d0d;color:#ffd0d0;font-size:11px}
+    details{margin-top:18px;border-top:1px solid #372022;padding-top:15px}
+    summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:58px;padding:12px 14px;text-align:left;border:1px solid #5a1b1b;border-radius:16px;background:linear-gradient(135deg,rgba(79,8,8,.68),rgba(24,10,11,.8));color:#fff}
+    summary::-webkit-details-marker{display:none}
+    .summary-icon{font-size:22px;filter:grayscale(1);opacity:.9}
+    .summary-copy{flex:1}.summary-copy small{display:block;color:#c4babb;font-size:10px;margin-bottom:2px}.summary-copy b{display:block;color:#ff4b44;font-size:15px}
+    .arrow{font-size:23px;color:#fff}
+    .fallbacks{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:11px}
+    .fallback{display:flex;align-items:center;justify-content:center;min-height:44px;padding:9px;border-radius:12px;border:1px solid #4d2526;background:#130c0d;color:#e8dddd;text-decoration:none;font-size:11px;font-weight:900}
+    .last{font-size:10px;color:#897d7e;margin:11px 0 0}
+    .tiny{font-size:9px;color:#6f6465;margin-top:11px}
+    @media(max-width:400px){.content{padding-left:14px;padding-right:14px}h1{font-size:22px}.btn{font-size:14px}.fallbacks{grid-template-columns:1fr}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
   </style>
 </head>
 <body>
-  <main class="card">
-    <div class="wa">☎</div>
-    <div class="eyebrow">Grupo oficial TNP</div>
-    <h1>Entre no grupo disponível.</h1>
-    <p>Você será direcionado para o grupo ativo da sequência. O WhatsApp abrirá automaticamente.</p>
-    <div class="status"><i class="dot"></i><span id="status">Localizando o grupo disponível...</span></div>
-    <a class="btn" id="join" href="#" rel="noopener noreferrer">ENTRAR NO GRUPO AGORA</a>
-    <div class="small">Redirecionamento automático em 3 segundos.</div>
-    <div class="error" id="error">Não foi possível localizar um grupo disponível. Tente novamente em instantes.</div>
-    <details id="alternatives" hidden>
-      <summary>O grupo selecionado está cheio?</summary>
-      <p style="font-size:11px;margin-top:10px">Tente outro grupo da sequência:</p>
-      <div class="fallbacks" id="fallbacks"></div>
-    </details>
+  <main class="page">
+    <section class="hero">
+      <img src="/hero-tnp-grupos.webp" alt="A TNP pode fechar? Em breve, pronunciamento oficial." width="600" height="600" />
+    </section>
+
+    <section class="content">
+      <div class="eyebrow">Grupo oficial TNP</div>
+      <h1>Entre no <b>grupo oficial</b> para acompanhar o pronunciamento do Rafa.</h1>
+      <p class="lead">Você será encaminhado para o grupo disponível da sequência e receberá as próximas informações oficiais da TNP.</p>
+
+      <div class="status"><i class="dot"></i><span id="status">Localizando o grupo disponível...</span></div>
+
+      <a class="btn" id="join" href="#" rel="noopener noreferrer">
+        <svg class="wa" viewBox="0 0 32 32" aria-hidden="true"><path d="M19.11 17.38c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.18-1.34-.81-.72-1.35-1.61-1.51-1.88-.16-.27-.02-.42.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.02-.22-.53-.45-.46-.61-.47h-.52c-.18 0-.48.07-.72.34-.25.27-.95.93-.95 2.27s.97 2.63 1.11 2.81c.14.18 1.91 2.91 4.62 4.08.65.28 1.15.45 1.54.58.65.21 1.24.18 1.71.11.52-.08 1.6-.65 1.83-1.29.23-.63.23-1.18.16-1.29-.07-.11-.25-.18-.52-.32zM16.04 3a12.9 12.9 0 0 0-11.1 19.47L3 29l6.7-1.91A12.96 12.96 0 1 0 16.04 3zm0 23.53c-2.1 0-4.15-.56-5.94-1.63l-.43-.25-3.98 1.14 1.17-3.88-.28-.45a10.54 10.54 0 1 1 9.46 5.07z"/></svg>
+        <span>ENTRAR NO GRUPO OFICIAL</span>
+        <span aria-hidden="true">›</span>
+      </a>
+
+      <p class="helper">Se este grupo estiver cheio, toque abaixo para tentar o próximo grupo disponível.</p>
+      <div class="error" id="error">Não foi possível localizar o grupo neste momento. Tente novamente em instantes.</div>
+
+      <details id="alternatives" hidden>
+        <summary>
+          <span class="summary-icon">👥</span>
+          <span class="summary-copy"><small>O grupo está cheio?</small><b>Ver próximos grupos</b></span>
+          <span class="arrow">›</span>
+        </summary>
+        <div class="fallbacks" id="fallbacks"></div>
+      </details>
+
+      <p class="last" id="last" hidden>Este é o último grupo disponível da sequência.</p>
+      <p class="tiny">Redirecionamento automático em 4 segundos.</p>
+    </section>
   </main>
+
 <script>
 function render(activeGroup,groups){
   const n=Math.min(Math.max(Number(activeGroup)||1,1),groups.length);
   const active=groups[n-1];
   if(!active)throw new Error('Grupo ausente');
-  document.getElementById('status').textContent=`Grupo ${String(n).padStart(2,'0')} selecionado`;
+  document.getElementById('status').textContent=`Grupo ${String(n).padStart(2,'0')} disponível agora`;
   document.getElementById('join').href=active;
   const box=document.getElementById('fallbacks');
-  groups.forEach((url,i)=>{if(i===n-1)return;const a=document.createElement('a');a.className='fallback';a.href=url;a.rel='noopener noreferrer';a.textContent=`Tentar Grupo ${String(i+1).padStart(2,'0')}`;box.appendChild(a)});
-  if(groups.length>1)document.getElementById('alternatives').hidden=false;
-  setTimeout(()=>{location.href=active},3000);
+  groups.forEach((url,i)=>{
+    if(i===n-1)return;
+    const a=document.createElement('a');
+    a.className='fallback';
+    a.href=url;
+    a.rel='noopener noreferrer';
+    a.textContent=`Entrar no Grupo ${String(i+1).padStart(2,'0')}`;
+    box.appendChild(a);
+  });
+  if(n<groups.length)document.getElementById('alternatives').hidden=false;
+  else document.getElementById('last').hidden=false;
+  setTimeout(()=>{location.href=active},4000);
 }
 (async()=>{
   try{
