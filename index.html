@@ -7,144 +7,103 @@
   <meta name="theme-color" content="#070708" />
   <title>Grupo Oficial TNP</title>
   <style>
-    :root{
-      --bg:#070708;
-      --panel:#100d0e;
-      --panel2:#151011;
-      --line:#3b2021;
-      --red:#ff231c;
-      --red2:#b90808;
-      --green:#25d366;
-      --green2:#0dab49;
-      --text:#fff;
-      --muted:#b7acad;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      min-height:100svh;
-      color:var(--text);
-      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-      background:
-        radial-gradient(circle at 50% 0%,rgba(255,35,28,.17),transparent 30%),
-        linear-gradient(180deg,#050505,#0a0506 58%,#050505);
-      overflow-x:hidden;
-    }
-    body:before{
-      content:"";
-      position:fixed;
-      inset:-25%;
-      z-index:-1;
-      pointer-events:none;
-      background:radial-gradient(circle,rgba(255,28,20,.08),transparent 32%);
-      animation:ambient 8s ease-in-out infinite alternate;
-    }
+    :root{--bg:#070708;--panel:#100d0e;--line:#3b2021;--red:#ff231c;--green:#25d366;--text:#fff;--muted:#b7acad}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}
+    body{margin:0;min-height:100svh;color:var(--text);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:radial-gradient(circle at 50% 0%,rgba(255,35,28,.17),transparent 30%),linear-gradient(180deg,#050505,#0a0506 58%,#050505);overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:-25%;z-index:-1;pointer-events:none;background:radial-gradient(circle,rgba(255,28,20,.08),transparent 32%);animation:ambient 8s ease-in-out infinite alternate}
     @keyframes ambient{from{transform:translate(-6%,-3%) scale(.95)}to{transform:translate(7%,5%) scale(1.08)}}
     .page{width:min(560px,100%);margin:auto;min-height:100svh;background:rgba(5,5,5,.34);box-shadow:0 0 70px rgba(0,0,0,.45)}
-    .hero{position:relative;overflow:hidden;background:#050505}
-    .hero img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover}
-    .hero:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:24%;background:linear-gradient(180deg,transparent,#080506)}
-    .content{position:relative;margin-top:-8px;padding:0 18px 34px;text-align:center}
-    .eyebrow{font-size:10px;font-weight:950;letter-spacing:.17em;text-transform:uppercase;color:#ff6b64;margin-bottom:7px}
-    h1{font-size:24px;line-height:1.08;letter-spacing:-.035em;margin:0 auto 9px;max-width:470px}
-    h1 b{color:var(--red)}
-    .lead{font-size:14px;line-height:1.45;color:#d3c9ca;margin:0 auto 16px;max-width:450px}
-    .status{display:inline-flex;align-items:center;gap:9px;min-height:38px;padding:8px 14px;border-radius:999px;background:rgba(10,18,13,.9);border:1px solid rgba(37,211,102,.5);color:#eef8f1;font-size:12px;font-weight:800;box-shadow:0 0 24px rgba(37,211,102,.08);margin-bottom:14px}
-    .dot{width:10px;height:10px;border-radius:50%;background:var(--green);box-shadow:0 0 0 7px rgba(37,211,102,.11);animation:pulse 1.35s infinite}
-    @keyframes pulse{50%{box-shadow:0 0 0 13px rgba(37,211,102,0)}}
-    .btn{display:flex;align-items:center;justify-content:center;gap:12px;min-height:58px;padding:14px 17px;border-radius:17px;background:linear-gradient(135deg,#2ce675,#17b957 62%,#0ca647);color:#041109;text-decoration:none;font-size:15px;font-weight:950;letter-spacing:.01em;box-shadow:0 16px 38px rgba(37,211,102,.25),inset 0 1px 0 rgba(255,255,255,.35);position:relative;overflow:hidden;transition:.18s ease}
-    .btn:active{transform:scale(.975)}
-    .btn:after{content:"";position:absolute;top:-90%;left:-45%;width:28%;height:280%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.6),transparent);transform:rotate(18deg);animation:shine 2.7s infinite}
-    @keyframes shine{0%,35%{left:-45%;opacity:0}48%{opacity:.95}70%{left:128%;opacity:0}100%{left:128%;opacity:0}}
-    .wa{width:29px;height:29px;flex:0 0 auto;fill:#fff;filter:drop-shadow(0 2px 4px rgba(0,0,0,.2))}
-    .helper{font-size:12px;line-height:1.45;color:#a99e9f;margin:15px auto 0;max-width:410px}
-    .error{display:none;margin-top:13px;padding:11px;border-radius:12px;border:1px solid #6d2929;background:#230d0d;color:#ffd0d0;font-size:11px}
-    details{margin-top:18px;border-top:1px solid #372022;padding-top:15px}
-    summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:58px;padding:12px 14px;text-align:left;border:1px solid #5a1b1b;border-radius:16px;background:linear-gradient(135deg,rgba(79,8,8,.68),rgba(24,10,11,.8));color:#fff}
-    summary::-webkit-details-marker{display:none}
-    .summary-icon{font-size:22px;filter:grayscale(1);opacity:.9}
-    .summary-copy{flex:1}.summary-copy small{display:block;color:#c4babb;font-size:10px;margin-bottom:2px}.summary-copy b{display:block;color:#ff4b44;font-size:15px}
-    .arrow{font-size:23px;color:#fff}
-    .fallbacks{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:11px}
-    .fallback{display:flex;align-items:center;justify-content:center;min-height:44px;padding:9px;border-radius:12px;border:1px solid #4d2526;background:#130c0d;color:#e8dddd;text-decoration:none;font-size:11px;font-weight:900}
-    .last{font-size:10px;color:#897d7e;margin:11px 0 0}
-    .tiny{font-size:9px;color:#6f6465;margin-top:11px}
-    @media(max-width:400px){.content{padding-left:14px;padding-right:14px}h1{font-size:22px}.btn{font-size:14px}.fallbacks{grid-template-columns:1fr}}
+    .hero{position:relative;overflow:hidden;background:#050505}.hero img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover}.hero:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:24%;background:linear-gradient(180deg,transparent,#080506)}
+    .content{position:relative;margin-top:-8px;padding:0 18px 34px;text-align:center}.eyebrow{font-size:10px;font-weight:950;letter-spacing:.17em;text-transform:uppercase;color:#ff6b64;margin-bottom:7px}
+    h1{font-size:24px;line-height:1.08;letter-spacing:-.035em;margin:0 auto 9px;max-width:470px}h1 b{color:var(--red)}
+    .lead{font-size:14px;line-height:1.45;color:#d3c9ca;margin:0 auto 15px;max-width:450px}
+    .rule{padding:12px 13px;margin:0 0 14px;border:1px solid #5a1b1b;border-radius:15px;background:linear-gradient(135deg,rgba(79,8,8,.68),rgba(24,10,11,.82));text-align:left}
+    .rule b{display:block;font-size:13px;color:#fff;margin-bottom:3px}.rule span{font-size:11px;line-height:1.4;color:#c8bdbf}
+    .lookup{padding:14px;border:1px solid #342426;border-radius:17px;background:linear-gradient(180deg,#151011,#0d0a0b);text-align:left}
+    label{display:block;font-size:11px;font-weight:900;color:#f4eeee;margin:0 0 7px}.phone-wrap{display:flex;align-items:center;gap:9px;height:52px;padding:0 12px;border:1px solid #4b3032;border-radius:13px;background:#090707;transition:.2s ease}.phone-wrap:focus-within{border-color:#ff4b44;box-shadow:0 0 0 4px rgba(255,35,28,.1)}.prefix{font-size:13px;color:#bcb1b2;font-weight:850}.phone{width:100%;height:100%;border:0;outline:0;background:transparent;color:#fff;font:700 16px system-ui;letter-spacing:.01em}.phone::placeholder{color:#6f6566}
+    .find{width:100%;min-height:51px;margin-top:10px;border:0;border-radius:14px;background:linear-gradient(135deg,#ff3a32,#d40d0d);color:#fff;font-size:13px;font-weight:950;cursor:pointer;box-shadow:0 13px 30px rgba(255,35,28,.2);position:relative;overflow:hidden}.find:after{content:"";position:absolute;top:-100%;left:-50%;width:28%;height:300%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.52),transparent);transform:rotate(18deg);animation:shine 2.9s infinite}@keyframes shine{0%,38%{left:-50%;opacity:0}50%{opacity:.9}72%{left:130%;opacity:0}100%{left:130%;opacity:0}}.find:disabled{opacity:.55;cursor:wait}
+    .privacy{font-size:9px;line-height:1.4;color:#776d6e;margin:9px 2px 0;text-align:center}
+    .status{display:none;align-items:center;justify-content:center;gap:9px;min-height:39px;padding:8px 14px;margin:14px 0;border-radius:999px;background:rgba(10,18,13,.9);border:1px solid rgba(37,211,102,.5);color:#eef8f1;font-size:12px;font-weight:850;box-shadow:0 0 24px rgba(37,211,102,.08)}.status.on{display:flex}.dot{width:10px;height:10px;border-radius:50%;background:var(--green);box-shadow:0 0 0 7px rgba(37,211,102,.11);animation:pulse 1.35s infinite}@keyframes pulse{50%{box-shadow:0 0 0 13px rgba(37,211,102,0)}}
+    .btn{display:none;align-items:center;justify-content:center;gap:11px;min-height:58px;padding:14px 16px;border-radius:17px;background:linear-gradient(135deg,#2ce675,#17b957 62%,#0ca647);color:#041109;text-decoration:none;font-size:14px;font-weight:950;box-shadow:0 16px 38px rgba(37,211,102,.25),inset 0 1px 0 rgba(255,255,255,.35);position:relative;overflow:hidden}.btn.on{display:flex}.btn:after{content:"";position:absolute;top:-90%;left:-45%;width:28%;height:280%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.6),transparent);transform:rotate(18deg);animation:shine 2.7s infinite}.wa{width:28px;height:28px;fill:#fff}.helper{font-size:11px;line-height:1.45;color:#a99e9f;margin:12px auto 0;max-width:420px}.error{display:none;margin-top:12px;padding:11px;border-radius:12px;border:1px solid #6d2929;background:#230d0d;color:#ffd0d0;font-size:11px}.error.on{display:block}.tiny{font-size:9px;color:#6f6465;margin-top:11px}
+    @media(max-width:400px){.content{padding-left:14px;padding-right:14px}h1{font-size:22px}.btn{font-size:13px}}
     @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
   </style>
 </head>
 <body>
   <main class="page">
-    <section class="hero">
-      <img src="/hero-tnp-grupos.webp?v=4" alt="A TNP pode fechar? Em breve, pronunciamento oficial." width="600" height="600" />
-    </section>
-
+    <section class="hero"><img src="/hero-tnp-grupos.webp?v=6" alt="A TNP pode fechar? Em breve, pronunciamento oficial." width="600" height="600" /></section>
     <section class="content">
       <div class="eyebrow">Grupo oficial TNP</div>
-      <h1>Entre no <b>grupo oficial</b> para acompanhar o pronunciamento do Rafa.</h1>
-      <p class="lead">Você será encaminhado para o grupo disponível da sequência e receberá as próximas informações oficiais da TNP.</p>
+      <h1>Entre no <b>grupo correto</b> sem duplicar seu número.</h1>
+      <p class="lead">Informe o mesmo WhatsApp que você usa nos grupos. Se esse número já estiver cadastrado, você será direcionado novamente para o grupo dele.</p>
 
-      <div class="status"><i class="dot"></i><span id="status">Localizando o grupo disponível...</span></div>
+      <div class="rule"><b>Um número, um único grupo.</b><span>Números novos serão enviados ao grupo ativo. Números já registrados permanecem no grupo original.</span></div>
 
+      <form class="lookup" id="lookup" novalidate>
+        <label for="phone">Qual é o seu número de WhatsApp?</label>
+        <div class="phone-wrap"><span class="prefix">+55</span><input class="phone" id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="(47) 99999-9999" maxlength="16" required /></div>
+        <button class="find" id="find" type="submit">LOCALIZAR MEU GRUPO</button>
+        <p class="privacy">O número completo não é guardado. O sistema salva apenas um código criptográfico para lembrar qual é o seu grupo.</p>
+      </form>
+
+      <div class="status" id="status"><i class="dot"></i><span id="statusText"></span></div>
       <a class="btn" id="join" href="#" rel="noopener noreferrer">
         <svg class="wa" viewBox="0 0 32 32" aria-hidden="true"><path d="M19.11 17.38c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.18-1.34-.81-.72-1.35-1.61-1.51-1.88-.16-.27-.02-.42.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.02-.22-.53-.45-.46-.61-.47h-.52c-.18 0-.48.07-.72.34-.25.27-.95.93-.95 2.27s.97 2.63 1.11 2.81c.14.18 1.91 2.91 4.62 4.08.65.28 1.15.45 1.54.58.65.21 1.24.18 1.71.11.52-.08 1.6-.65 1.83-1.29.23-.63.23-1.18.16-1.29-.07-.11-.25-.18-.52-.32zM16.04 3a12.9 12.9 0 0 0-11.1 19.47L3 29l6.7-1.91A12.96 12.96 0 1 0 16.04 3zm0 23.53c-2.1 0-4.15-.56-5.94-1.63l-.43-.25-3.98 1.14 1.17-3.88-.28-.45a10.54 10.54 0 1 1 9.46 5.07z"/></svg>
-        <span>ENTRAR NO GRUPO OFICIAL</span>
-        <span aria-hidden="true">›</span>
+        <span>ENTRAR NO MEU GRUPO</span><span aria-hidden="true">›</span>
       </a>
-
-      <p class="helper">Se este grupo estiver cheio, toque abaixo para tentar o próximo grupo disponível.</p>
-      <div class="error" id="error">Não foi possível localizar o grupo neste momento. Tente novamente em instantes.</div>
-
-      <details id="alternatives" hidden>
-        <summary>
-          <span class="summary-icon">👥</span>
-          <span class="summary-copy"><small>O grupo está cheio?</small><b>Ver próximos grupos</b></span>
-          <span class="arrow">›</span>
-        </summary>
-        <div class="fallbacks" id="fallbacks"></div>
-      </details>
-
-      <p class="last" id="last" hidden>Este é o último grupo disponível da sequência.</p>
-      <p class="tiny">Redirecionamento automático em 4 segundos.</p>
+      <p class="helper" id="helper">Depois de localizar o número, o WhatsApp abrirá no grupo correspondente.</p>
+      <div class="error" id="error"></div>
+      <p class="tiny">Direcionamento individual para evitar números repetidos entre os grupos.</p>
     </section>
   </main>
 
 <script>
-function render(activeGroup,groups){
-  const n=Math.min(Math.max(Number(activeGroup)||1,1),groups.length);
-  const active=groups[n-1];
-  if(!active)throw new Error('Grupo ausente');
-  document.getElementById('status').textContent=`Grupo ${String(n).padStart(2,'0')} disponível agora`;
-  document.getElementById('join').href=active;
-  const box=document.getElementById('fallbacks');
-  groups.forEach((url,i)=>{
-    if(i<n)return;
-    const a=document.createElement('a');
-    a.className='fallback';
-    a.href=url;
-    a.rel='noopener noreferrer';
-    a.textContent=`Entrar no Grupo ${String(i+1).padStart(2,'0')}`;
-    box.appendChild(a);
-  });
-  if(n<groups.length)document.getElementById('alternatives').hidden=false;
-  else document.getElementById('last').hidden=false;
-  setTimeout(()=>{location.href=active},4000);
+const form=document.getElementById('lookup');
+const phone=document.getElementById('phone');
+const find=document.getElementById('find');
+const status=document.getElementById('status');
+const statusText=document.getElementById('statusText');
+const join=document.getElementById('join');
+const helper=document.getElementById('helper');
+const errorBox=document.getElementById('error');
+let redirectTimer;
+
+function maskPhone(value){
+  const d=value.replace(/\D/g,'').slice(0,11);
+  if(d.length<=2)return d;
+  if(d.length<=7)return `(${d.slice(0,2)}) ${d.slice(2)}`;
+  if(d.length<=10)return `(${d.slice(0,2)}) ${d.slice(2,6)}-${d.slice(6)}`;
+  return `(${d.slice(0,2)}) ${d.slice(2,7)}-${d.slice(7)}`;
 }
-(async()=>{
+phone.addEventListener('input',()=>{phone.value=maskPhone(phone.value)});
+
+form.addEventListener('submit',async(event)=>{
+  event.preventDefault();
+  clearTimeout(redirectTimer);
+  errorBox.classList.remove('on');
+  status.classList.remove('on');
+  join.classList.remove('on');
+  const digits=phone.value.replace(/\D/g,'');
+  if(digits.length<10||digits.length>11){errorBox.textContent='Informe um número de WhatsApp válido com DDD.';errorBox.classList.add('on');phone.focus();return}
+
+  find.disabled=true;find.textContent='LOCALIZANDO...';
   try{
-    const response=await fetch('/api/config',{cache:'no-store'});
-    if(!response.ok)throw new Error('Falha na configuração');
+    const response=await fetch('/api/assign',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({phone:`55${digits}`}),cache:'no-store'});
     const data=await response.json();
-    if(!Array.isArray(data.groups)||!data.groups.length)throw new Error('Sem grupos');
-    render(data.activeGroup,data.groups);
+    if(!response.ok||!data.ok||!data.url)throw new Error(data.error||'Não foi possível localizar seu grupo.');
+
+    statusText.textContent=data.existing?`Este número já pertence ao ${data.groupName}.`:`Número reservado no ${data.groupName}.`;
+    status.classList.add('on');
+    join.href=data.url;join.classList.add('on');
+    helper.textContent=data.existing?'Você será levado ao mesmo grupo em que esse número já foi registrado.':'Seu número foi associado a este grupo e não será enviado a outro grupo depois.';
+    redirectTimer=setTimeout(()=>{location.href=data.url},3000);
   }catch(error){
-    document.getElementById('status').textContent='Configuração indisponível';
-    document.getElementById('join').style.opacity='.45';
-    document.getElementById('join').style.pointerEvents='none';
-    document.getElementById('error').style.display='block';
+    errorBox.textContent=error.message||'Não foi possível localizar seu grupo agora. Tente novamente.';
+    errorBox.classList.add('on');
+  }finally{
+    find.disabled=false;find.textContent='LOCALIZAR MEU GRUPO';
   }
-})();
+});
 </script>
 </body>
 </html>
